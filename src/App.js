@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import Favorites from "./pages/Favorites";
-import Layout from "./components/Layout";
+import Layout from "./components/layout/Layout";
 
 const App = () => {
   return (
