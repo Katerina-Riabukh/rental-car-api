@@ -1,20 +1,21 @@
 import { useSelector } from "react-redux";
-import CartProduct from "../cart-product/CartProduct";
+// import CardProduct from "../card-product/CardProduct";
+import { UL } from "./CarsList.styled";
+import CardItem from "../card-item/CardItem";
 // import { store } from "../../redux/store";
 // import { selectCars } from "../../redux/selectors";
 
 const CarsList = () => {
   const cars = useSelector((state) => state.cars.cars);
-  console.log(cars);
   //   const car = store.getState(cars);
   //   console.log(car);
 
   return (
-    <ul>
+    <UL>
       {cars.map((item) => {
-        return <CartProduct item={item} key={item.id} />;
+        return <CardItem item={item} key={item.id} />;
       })}
-    </ul>
+    </UL>
   );
 };
 

@@ -1,5 +1,6 @@
-const CartProduct = ({ item }) => {
-  console.log(item);
+import { Wraper } from "./CardProduct.styled";
+
+const CardProduct = ({ item }) => {
   const {
     brand,
     img,
@@ -20,7 +21,7 @@ const CartProduct = ({ item }) => {
   } = item;
 
   return (
-    <div>
+    <Wraper>
       <img src={img} alt={brand} />
       <h2>
         {brand}
@@ -67,8 +68,8 @@ const CartProduct = ({ item }) => {
       <h3>Address: {address}</h3>
 
       <button>Rental car</button>
-    </div>
+    </Wraper>
   );
 };
 
-export default CartProduct;
+export default CardProduct;

@@ -4,6 +4,7 @@ import CarsList from "../components/cars-list/CarsList";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCars } from "../redux/fetch";
+import { Container } from "./pages.styled";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -13,12 +14,11 @@ const Catalog = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <h1>Catalog</h1>
+    <Container>
       <Filter />
       <CarsList />
       <Outlet />
-    </>
+    </Container>
   );
 };
 
