@@ -11,3 +11,15 @@ export const fetchCars = createAsyncThunk("cars/get", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+// export const addCar = createAsyncThunk(
+//   "cars/add",
+//   async (credansials, thunkAPI) => {
+//     try {
+//       const response = await axios.post("/rental-cars", credansials);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

@@ -11,7 +11,6 @@ export const carSlice = createSlice({
   extraReducers: {
     //GET
     [fetchCars.fulfilled](state, action) {
-      console.log(action.payload);
       state.cars = action.payload;
       console.log(state.cars);
     },
