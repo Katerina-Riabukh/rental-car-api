@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rental-car-api/static/css/main.c8acf12b.css",
+    "main.js": "/rental-car-api/static/js/main.93ede81b.js",
+    "static/media/welcom.jpg": "/rental-car-api/static/media/welcom.79641e604007ecb694a6.jpg",
+    "index.html": "/rental-car-api/index.html",
+    "main.c8acf12b.css.map": "/rental-car-api/static/css/main.c8acf12b.css.map",
+    "main.93ede81b.js.map": "/rental-car-api/static/js/main.93ede81b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8acf12b.css",
+    "static/js/main.93ede81b.js"
+  ]
+}
