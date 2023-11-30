@@ -1,22 +1,25 @@
 import { useSelector } from "react-redux";
-// import CardProduct from "../card-product/CardProduct";
 import { UL } from "./CarsList.styled";
 import CardItem from "../card-item/CardItem";
 // import { useState } from "react";
 // import { store } from "../../redux/store";
-// import { selectCars } from "../../redux/selectors";
+import { selectFilteredCars, selectCars } from "../../redux/selectors";
 
-const CarsList = ({ filteredCars }) => {
-  const cars = useSelector((state) => state.cars.cars);
-
+const CarsList = () => {
+  const cars = useSelector(selectCars);
+  const filteredCars = useSelector(selectFilteredCars);
   //   const car = store.getState(cars);
   //   console.log(car);
 
   return (
     <UL>
-      {cars.map((item) => {
-        return <CardItem item={item} key={item.id} />;
-      })}
+      {filteredCars.length !== 0
+        ? filteredCars.map((item) => {
+            return <CardItem item={item} key={item.id} />;
+          })
+        : cars.map((item) => {
+            return <CardItem item={item} key={item.id} />;
+          })}
     </UL>
   );
 };

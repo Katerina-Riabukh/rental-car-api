@@ -12,7 +12,6 @@ export const carSlice = createSlice({
     //GET
     [fetchCars.fulfilled](state, action) {
       state.cars = action.payload;
-      console.log(state.cars);
     },
   },
 });

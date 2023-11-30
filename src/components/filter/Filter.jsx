@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import { INPUT, SPAN, LABEL } from "./Filter.styled";
 import { selectCars } from "../../redux/selectors";
-import { useSelector } from "react-redux";
-import { getCarBrand } from "../../redux/filterSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getFilteredCars } from "../../redux/filterSlice";
 
-const Filter = ({ getFilteredCars }) => {
+const Filter = () => {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
   const [from, setFrom] = useState("");
@@ -14,10 +14,8 @@ const Filter = ({ getFilteredCars }) => {
   const [brands, setBrands] = useState([]);
   // const [filteredcars, setfilteredCars]= useState([])
 
-  console.log(from);
-  console.log(to);
-
   const cars = useSelector(selectCars);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getbrandsList = cars.map((car) => car.make);
@@ -62,7 +60,6 @@ const Filter = ({ getFilteredCars }) => {
     const { value } = event;
     if (value) {
       setBrand(value);
-      getCarBrand(value);
     }
   };
   const onChangeSelectPrice = (event) => {
@@ -74,14 +71,26 @@ const Filter = ({ getFilteredCars }) => {
 
   const formSubmit = (event) => {
     event.preventDefault();
-    const filteredCars = cars.filter((car) => {
-      return car.make === brand;
-    });
-    // const filteredCars = cars.filter((car) => {
-    //   console.log(car.rentalPrice);
-    //   return car.rentalPrice === price;
-    // });
-    getFilteredCars(filteredCars);
+
+    const filteredCarsByBrand =
+      brand !== "" ? cars.filter((car) => car.make === brand) : cars;
+
+    const filteredcarsByPrice =
+      price !== ""
+        ? filteredCarsByBrand.filter((car) => car.rentalPrice === price)
+        : filteredCarsByBrand;
+
+    const filteredCarsByMileageFrom =
+      from !== ""
+        ? filteredcarsByPrice.filter((car) => car.mileage >= from)
+        : filteredcarsByPrice;
+
+    const filteredCarsByMileageTo =
+      to !== ""
+        ? filteredCarsByMileageFrom.filter((car) => car.mileage <= to)
+        : filteredcarsByPrice;
+
+    dispatch(getFilteredCars(filteredCarsByMileageTo));
   };
 
   return (
