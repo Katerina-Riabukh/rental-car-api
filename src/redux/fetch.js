@@ -12,6 +12,20 @@ export const fetchCars = createAsyncThunk("cars/get", async (_, thunkAPI) => {
   }
 });
 
+export const fetchFavoritesCars = createAsyncThunk(
+  "cars/getfilteredcars",
+  async (id, thunkAPI) => {
+    console.log(id);
+    try {
+      const response = await axios.get(`/rental-cars/${id}`);
+      // const response = await axios.get("/rental-cars/9582");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // export const addCar = createAsyncThunk(
 //   "cars/add",
 //   async (credansials, thunkAPI) => {
