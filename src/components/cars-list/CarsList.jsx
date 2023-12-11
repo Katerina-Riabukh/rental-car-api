@@ -3,17 +3,13 @@ import { UL } from "./CarsList.styled";
 import CardItem from "../card-item/CardItem";
 // import { useState } from "react";
 // import { store } from "../../redux/store";
-import {
-  selectFilteredCars,
-  selectCars,
-  selectFavorites,
-} from "../../redux/selectors";
+import { selectFilteredCars, selectCars } from "../../redux/selectors";
 
 const CarsList = () => {
   const cars = useSelector(selectCars);
   const filteredCars = useSelector(selectFilteredCars);
-  const favorites = useSelector(selectFavorites);
-  console.log(favorites);
+  // const favorites = useSelector(selectFavorites);
+
   //   const car = store.getState(cars);
   //   console.log(car);
 
