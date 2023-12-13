@@ -39,3 +39,21 @@ ol {
   padding-left: 0;
   margin: 0;
 }
+
+.css-b62m3t-container .css-13cymwt-control {
+  border-radius: 14px;
+  padding: 4px;
+  border: none;
+  background-color: rgba(247, 247, 251, 1);
+
+  &::placeholder {
+    color: rgba(18, 20, 23, 1);
+  }
+}
+
+.css-b62m3t-container.css-13cymwt-control:hover,
+.css-b62m3t-container.css-13cymwt-control:focus {
+  border: none;
+  background-color: rgba(247, 247, 251, 1);
+  color: rgba(18, 20, 23, 1);
+}

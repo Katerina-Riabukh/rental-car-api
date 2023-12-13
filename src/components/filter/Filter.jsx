@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 // import Selection from "./Select";
 import Select from "react-select";
-import { INPUT, SPAN, LABEL } from "./Filter.styled";
+import {
+  INPUT1,
+  INPUT2,
+  SPAN,
+  LABEL,
+  BUTTON,
+  FORM,
+  LabelSpan,
+  LabelInput,
+  SpanLabel,
+} from "./Filter.styled";
 import { selectCars } from "../../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getFilteredCars } from "../../redux/filterSlice";
@@ -94,38 +104,39 @@ const Filter = () => {
   };
 
   return (
-    <form onSubmit={formSubmit}>
-      <label>
-        Car brand
+    <FORM onSubmit={formSubmit}>
+      <LabelInput>
+        <SpanLabel>Car brand</SpanLabel>
         <Select
+          styles={{ padding: "14px", borderRadius: "14px" }}
           placeholder="Enter the text"
           defaultValue={brand}
           onChange={onChangeSelectBrand}
           options={brands}
         />
-      </label>
-      <label>
-        Price/ 1 hour
+      </LabelInput>
+      <LabelInput>
+        <SpanLabel>Price/ 1 hour</SpanLabel>
         <Select
           placeholder="To $"
           defaultValue={price}
           onChange={onChangeSelectPrice}
           options={priceList}
         />
-      </label>
-      <label>
-        Сar mileage / km
+      </LabelInput>
+      <LabelInput>
+        <LabelSpan>Сar mileage / km</LabelSpan>
         <LABEL>
-          <INPUT type="number" name="from" onChange={onChangeInput} />
+          <INPUT1 type="number" name="from" onChange={onChangeInput} />
           <SPAN>From:</SPAN>
         </LABEL>
         <LABEL>
-          <INPUT type="number" name="to" onChange={onChangeInput} />
+          <INPUT2 type="number" name="to" onChange={onChangeInput} />
           <SPAN>To:</SPAN>
         </LABEL>
-      </label>
-      <button type="submit">Search</button>
-    </form>
+      </LabelInput>
+      <BUTTON type="submit">Search</BUTTON>
+    </FORM>
   );
 };
 

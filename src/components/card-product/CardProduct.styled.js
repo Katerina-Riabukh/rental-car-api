@@ -104,6 +104,7 @@ export const Button = styled.button`
   width: 168px;
   height: 44px;
   margin-top: 24px;
+  color: rgba(255, 255, 255, 1);
   border: none;
   border-radius: 12px;
   background-color: rgba(52, 112, 255, 1);
